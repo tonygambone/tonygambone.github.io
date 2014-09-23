@@ -1,0 +1,20 @@
+---
+layout: page
+title: Projects
+permalink: /projects/
+---
+<p>These are some posts about interesting projects I'm working on,
+or have worked on in the past.</p>
+
+<ul>
+{% for post in site.categories.projects %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a> - posted on {{ post.date | date: "%B %-d, %Y" }}</li>
+{% endfor %}
+</ul>
+
+<p>Some other projects of mine include:</p>
+
+<ul>
+  <li><a href="http://cheeseorfont.com/">Cheese or Font</a></li>
+  <li><a href="http://canibeonthejamesrivertoday.appspot.com">Can I Be On The James River Today?</a></li>
+</ul>

@@ -1,0 +1,21 @@
+---
+layout: post
+title: Monotask
+category: projects
+---
+<p>Monotask was an attention management application, a joint startup effort between <a href="http://charliepark.org">Charlie Park</a>
+and me. We worked on it from 2011 to 2013.</p>
+<p>It consisted of a Rails application that would allow users to specify a weekly
+schedule of sites to block, to help our users stay focused on their work.  There was also a client application, written in C++/Qt, that would synchronize with the 
+web application and use the schedule data to control an HTTP proxy server (a custom Apache build).  The proxy server would
+disallow access to the desired sites using rewrite rules.</p>
+<p>The client software was my primary focus; it went through several iterations. We were initially targeting Windows and
+Mac, and the first version was a C#/.NET/Mono application.  At the time there was poor support for certain OS X features,
+so I moved to a C++/Qt client that worked quite well.  Parts of the application needed OS-specific C++ and C code,
+and the platform was flexible enough to allow this.</p>
+<p>The biggest pain point was reliably controlling the Apache instance; it would sometimes not come back up after
+hibernation, for example, and was difficult to restart on Windows.  At the time that we closed the project down, I was
+investigating various ways to integrate the proxy more fully into the control application; I was looking at a <a href="https://gist.github.com/tonygambone/2422322">Node.js
+solution for this</a>, and also experimenting with my own C++ HTTP forward proxy.</p>
+<p>We decided to shut the project down because we weren't able to meet our subscriber goals, but we were both very satisfied with
+the application we'd built.</p>

@@ -1,0 +1,16 @@
+# Site settings
+title: Tony Gambone
+email: tonygambone@gmail.com
+description: >
+  Software developer and family man in Richmond, Virginia.
+baseurl: ""
+url: "http://tonygambone.org"
+#twitter_username: mogrify
+github_username:  tonygambone
+paginate: 5
+
+# Build settings
+markdown: kramdown
+
+gems:
+  - jekyll-paginate

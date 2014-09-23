@@ -1,0 +1,34 @@
+---
+layout: post
+title: DEQ CATS
+category: projects
+---
+<p>CATS (Certification and Accreditation Tracking System) is a web application for people who need to get
+various certifications through DEQ. This includes erosion &amp; sediment control, stormwater management, and 
+responsible land disturber (RLD) certificates.  The app allows users to pay for and take online courses,
+track recertification hours, and print their certificates.</p>
+<p>I am the architect and lead developer on the CATS project. It consists of an ASP.NET MVC 5 web application
+backed by SQL Server, plus some additional supporting utilities.</p>
+<p>This project is currently in development but should be feature complete by the end of the year. The most
+interesting aspect of the project has been the various other systems it needs to integrate with. This includes:</p>
+<ul>
+    <li><strong>Legacy data:</strong> Many of these certifications had been administered by another state agency
+    (DCR) for several years, and so we have developed a process to load the legacy data into our production
+    systems. This also includes some cleanup tasks, such as deduping, string normalization, etc.</li>
+    <li><strong>Pearson VUE:</strong> Some certification tests are administered at Pearson testing centers, and they make the test
+    data available to us on an SFTP server. I wrote an ETL application that downloads the previous day's test data,
+    parses and verifies it, and loads it into the CATS production database.</li>
+    <li><strong>Articulate/SCORM:</strong> For the RLD certification, users will pay for the certification and
+    then take an online course and quiz.  The course is developed by our training staff using Articulate,
+    and is <a href="http://scorm.com/scorm-explained/">SCORM</a>-compatible. Rather than standing up a full LMS,
+    I wrote a basic implementation of the SCORM API, enough to launch the course and retrieve the results.</li>
+    <li><strong>Elavon:</strong> To accept payments, we need to integrate with the state-approved payment 
+    gateway vendor. We are using Elavon's hosted payment form to accept credit card info so it does not pass
+    through our systems. I was able to build on some work done on another DEQ project that was set up to accept
+    payments and process them in daily batches. For CATS, we will handle the payments in real time.</li>
+</ul>
+<p>CATS is also the second DEQ project to use a new security framework that provides an integrated login and
+permission system for both internal and external users. Members of the public will not need to create separate
+accounts for separate applications as we continue to bring more publicly accessible apps online. Internal users
+can use their Active Directory credentials to access any of the apps. I helped to design the security framework
+and have continued to update it.</p>
